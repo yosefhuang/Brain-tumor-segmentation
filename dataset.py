@@ -132,13 +132,13 @@ class BrainSegmentationDataset(Dataset):
             self.mask_true = mask
             mask = cv2.merge([mask,mask,mask])
             image, mask = elastic_transform(image, mask, image.shape[1] * 3, image.shape[1] * 0.08, image.shape[1] * 0.08)
-            image, mask = random_mask(image, mask)
+#            image, mask = random_mask(image, mask)
         elif unique.shape[0] == 1 and self.image_true is not None and (self.count % 3) != 0:
             image = self.image_true
             mask = self.mask_true
             mask = cv2.merge([mask,mask,mask])
             image, mask = elastic_transform(image, mask, image.shape[1] * 3, image.shape[1] * 0.08, image.shape[1] * 0.08)
-            image, mask = random_mask(image, mask)
+#            image, mask = random_mask(image, mask)
             self.count += 1 
             if self.count >= 30001 :
                 self.count = 1

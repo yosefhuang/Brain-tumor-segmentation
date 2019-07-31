@@ -16,7 +16,7 @@ from data import BrainSegmentationvalDataset as valDataset
 from logger import Logger
 from loss import DiceLoss,Gen_dice_loss,BCEDiceLoss
 from transform import transforms
-from unet import UNet,NestedUNet_2
+from unet import UNet,NestedUNet
 from utils import log_images, dsc,my_dsc
 
 
@@ -30,7 +30,7 @@ def main(args):
 
 #    unet = UNet(in_channels=Dataset.in_channels, out_channels=Dataset.out_channels)
 #    unet = NestedUNet(in_ch=Dataset.in_channels, out_ch=Dataset.out_channels)
-    unet = NestedUNet_2()
+    unet = NestedUNet()
     unet.to(device)
 
 #    dsc_loss = Gen_dice_loss()
